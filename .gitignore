@@ -1,3 +1,4 @@
+# Local build output and tools (archive/ is committed on purpose)
 node_modules/
 _site/
 _tmp_topshelf/
