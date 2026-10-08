@@ -1,0 +1,10 @@
+{
+  "name": "ivah-sound-site",
+  "private": true,
+  "description": "Fonts for the Ivah Sound site build (self-hosted, no Google requests).",
+  "dependencies": {
+    "@fontsource/barlow": "5.2.8",
+    "@fontsource/barlow-condensed": "5.2.8",
+    "@fontsource/bebas-neue": "5.2.7"
+  }
+}

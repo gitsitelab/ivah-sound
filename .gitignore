@@ -1,0 +1,4 @@
+node_modules/
+_site/
+_tmp_topshelf/
+__pycache__/
