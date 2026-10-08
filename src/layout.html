@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+{{robots}}
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:image" content="{{og_image}}">
+<link rel="icon" type="image/png" href="{{root}}favicon.png">
+<link rel="apple-touch-icon" href="{{root}}apple-touch-icon.png">
+<link rel="preload" href="{{root}}assets/fonts/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{root}}assets/fonts.css?v={{version}}">
+<link rel="stylesheet" href="{{root}}assets/site.css?v={{version}}">
+</head>
+<body class="{{body_class}}">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar" data-topbar>
+  <a class="brand" href="{{root}}index.html" aria-label="Ivah Sound home">
+    <img src="{{root}}assets/wordmark-light.png" alt="Ivah Sound" width="180" height="32">
+  </a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+    <span></span><span></span><span class="sr">Menu</span>
+  </button>
+  <nav class="site-nav" id="site-nav" aria-label="Main">
+    <a href="{{root}}index.html#about">About</a>
+    <a href="{{root}}index.html#system">The System</a>
+    <a href="{{root}}index.html#history">History</a>
+    <a href="{{root}}index.html#culture">Culture</a>
+    <a href="{{root}}index.html#store">Store</a>
+    <a href="{{root}}journal.html"{{journal_current}}>Journal</a>
+    <a class="nav-cta" href="{{root}}index.html#book">Book Ivah</a>
+  </nav>
+</header>
+
+<main id="main">
+{{content}}
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="{{root}}assets/emblem.png" alt="" width="64" height="64">
+      <p class="footer-claim">Sound System · Culture · Community</p>
+      <p class="footer-small">Finland · Est. 2010</p>
+    </div>
+    <div>
+      <p class="label">Booking</p>
+      <p><a href="mailto:bookings@ivahsound.com">bookings@ivahsound.com</a></p>
+      <p class="footer-small">Helsinki, Finland</p>
+    </div>
+    <div>
+      <p class="label">Follow</p>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/ivahsound/" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/ivahsound/" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.tiktok.com/@ivahsound" rel="noopener">TikTok</a></li>
+        <li><a href="https://soundcloud.com/ivah-sound" rel="noopener">SoundCloud</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="label">More</p>
+      <ul class="footer-links">
+        <li><a href="{{root}}journal.html">Journal archive</a></li>
+        <li><a href="https://holvi.com/shop/ivahsound/" rel="noopener">Holvi store</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">© Ivah Sound <span data-year>{{year}}</span></p>
+</footer>
+<script src="{{root}}assets/site.js?v={{version}}" defer></script>
+</body>
+</html>
