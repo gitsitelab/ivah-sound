@@ -16,7 +16,6 @@ import re
 import shutil
 import subprocess
 import sys
-import tarfile
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -134,15 +133,9 @@ def import_topshelf():
     if not os.path.exists(tgz) or os.path.getsize(tgz) < 10_000_000:
         failures.append("Top Shelf backup could not be downloaded from Google Drive")
         return
-    # The backup has a damaged tail; read what we can.
-    try:
-        with tarfile.open(tgz, "r:gz") as t:
-            for m in t:
-                if m.name == "softsql.sql" or m.name.startswith("wp-content/uploads/2015") or m.name.startswith("wp-content/uploads/2016"):
-                    if m.isfile():
-                        t.extract(m, tmp, filter="data")
-    except Exception as e:
-        print("  tar stopped early:", e)
+    # The backup has damaged blocks; GNU tar skips over them where Python's tarfile stops.
+    subprocess.run(["tar", "-xzf", tgz, "-C", tmp, "--no-same-owner", "--wildcards",
+                    "softsql.sql", "wp-content/uploads/2015/*", "wp-content/uploads/2016/*"], check=False)
     sql = os.path.join(tmp, "softsql.sql")
     if posts is None:
         posts = wpdump.extract(sql)
